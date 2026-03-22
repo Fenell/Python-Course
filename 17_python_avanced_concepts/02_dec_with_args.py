@@ -1,17 +1,37 @@
-def repeat(n):
-    def decorator(func):
-        def wrapper(a):
-            for i in range(n):
-                func(a)
+# def repeat(n):
+#     def decorator(func):
+#         def wrapper(a):
+#             for i in range(n):
+#                 func(a)
 
-        return wrapper
+#         return wrapper
 
-    return decorator
-
-
-@repeat(5)
-def say_hello(a):
-    print(f"Hello! {a}")
+#     return decorator
 
 
-say_hello("dat mt")
+# @repeat(5)
+# def say_hello(a):
+#     print(f"Hello! {a}")
+
+
+# say_hello("dat mt")
+def cal_min(a, b):
+    if a < b:
+        return a
+    return b
+
+
+def cal_max(a, b):
+    if a > b:
+        return a
+    return b
+
+
+def high_order_func(cal_name):
+    if cal_name == "min":
+        return cal_min
+    return cal_max
+
+
+my_res = high_order_func("max")
+print(my_res(3, 6))
